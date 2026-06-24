@@ -75,7 +75,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="mailto:belenburgos20@gmail.com"
+          href="mailto:belenburgos.dev@gmail.com"
           className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 text-sm font-body text-primary hover:bg-primary/10 transition-all duration-200 hover:border-primary/60"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
@@ -120,11 +120,11 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="mailto:belenburgos20@gmail.com"
+            href="mailto:belenburgos.dev@gmail.com"
             className="mt-2 inline-flex items-center gap-2 text-primary text-sm"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
-            belenburgos20@gmail.com
+            belenburgos.dev@gmail.com
           </a>
         </div>
       )}

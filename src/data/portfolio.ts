@@ -92,7 +92,7 @@ export const projects = [
 
 export const education = [
   {
-    title: "Técnica Universitaria en Programación",
+    title: "Tecnicatura Universitaria en Programación",
     institution: "UTN — Universidad Tecnológica Nacional",
     year: "2026",
     description:
