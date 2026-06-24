@@ -36,7 +36,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 md:pt-24 pb-12 md:pb-16">
         <div className="max-w-3xl">
           <div
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8"

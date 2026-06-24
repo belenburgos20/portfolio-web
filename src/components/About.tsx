@@ -96,7 +96,7 @@ export default function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { num: "3+", label: "Proyectos\ncompletos" },
                 { num: "5+", label: "Tecnologías\ndominadas" },

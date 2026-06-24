@@ -59,7 +59,7 @@ function ProjectCard({
       className="card-glass rounded-2xl overflow-hidden group hover:border-primary/25 transition-all duration-300 hover:glow-pink hover:-translate-y-1 hover:shadow-xl"
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 md:h-56 overflow-hidden">
         <img
           src={project.preview}
           alt={`Vista previa de ${project.title}`}

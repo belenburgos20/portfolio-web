@@ -139,7 +139,7 @@ export default function Contact() {
             </form>
 
             <div>
-              <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <ContactCard
                   href={`mailto:${personalInfo.email}`}
                   icon={<MailIcon />}
