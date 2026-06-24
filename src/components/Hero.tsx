@@ -65,7 +65,7 @@ export default function Hero() {
               opacity: 0,
             }}
           >
-            Hola, soy <span className="gradient-text">{personalInfo.name}</span>
+            <span className="gradient-text">{personalInfo.name}</span>
           </h1>
 
           <p

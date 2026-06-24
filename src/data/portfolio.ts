@@ -40,7 +40,7 @@ export const projects = [
       "Deploy en producción",
       "TypeScript end-to-end",
     ],
-    preview: "/previews/sistema-fullstack.svg",
+    preview: "/public/previews/sistema-fullstack.png",
     stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "JWT"],
     links: {
       code: "https://github.com/belenburgos20/Trabajo-Final-Backend",
@@ -50,8 +50,8 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Vientos Patagónicos",
-    subtitle: "Proyecto Personal",
+    title: "Menú digital para bar",
+    subtitle: "Proyecto para cliente",
     description:
       "Sitio web responsive con foco en experiencia de usuario. Diseñado con atención al detalle, performance y accesibilidad.",
     highlights: [
@@ -60,7 +60,27 @@ export const projects = [
       "Animaciones CSS",
       "Deploy en Vercel",
     ],
-    preview: "/previews/vientos-patagonicos.svg",
+    preview: "/public/previews/ey-bar.png",
+    stack: ["HTML", "CSS", "JavaScript"],
+    links: {
+      code: "https://github.com/belenburgos20/bar",
+      demo: "https://bar-three.vercel.app/",
+    },
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "Vientos Patagónicos",
+    subtitle: "Proyecto para cliente",
+    description:
+      "Sitio web responsive con foco en experiencia de usuario. Diseñado con atención al detalle, performance y accesibilidad.",
+    highlights: [
+      "Diseño responsive mobile-first",
+      "UX/UI cuidada",
+      "Animaciones CSS",
+      "Deploy en Vercel",
+    ],
+    preview: "/public/previews/vientos-patagonicos.png",
     stack: ["HTML", "CSS", "JavaScript"],
     links: {
       code: "https://github.com/belenburgos20/proyecto-vientos-patagonicos",

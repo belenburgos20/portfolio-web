@@ -98,9 +98,9 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { num: "2+", label: "Proyectos\ncompletos" },
+                { num: "3+", label: "Proyectos\ncompletos" },
                 { num: "5+", label: "Tecnologías\ndominadas" },
-                { num: "1", label: "App en\nproducción" },
+                { num: "3", label: "proyectos en\nproducción" },
               ].map((stat) => (
                 <div
                   key={stat.label}
