@@ -40,7 +40,7 @@ export const projects = [
       "Deploy en producción",
       "TypeScript end-to-end",
     ],
-    preview: "/public/previews/sistema-fullstack.png",
+    preview: "/previews/sistema-fullstack.png",
     stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "JWT"],
     links: {
       code: "https://github.com/belenburgos20/Trabajo-Final-Backend",
@@ -60,7 +60,7 @@ export const projects = [
       "Animaciones CSS",
       "Deploy en Vercel",
     ],
-    preview: "/public/previews/ey-bar.png",
+    preview: "/previews/ey-bar.png",
     stack: ["HTML", "CSS", "JavaScript"],
     links: {
       code: "https://github.com/belenburgos20/bar",
@@ -80,7 +80,7 @@ export const projects = [
       "Animaciones CSS",
       "Deploy en Vercel",
     ],
-    preview: "/public/previews/vientos-patagonicos.png",
+    preview: "/previews/vientos-patagonicos.png",
     stack: ["HTML", "CSS", "JavaScript"],
     links: {
       code: "https://github.com/belenburgos20/proyecto-vientos-patagonicos",
