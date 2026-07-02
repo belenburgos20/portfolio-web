@@ -70,6 +70,26 @@ export const projects = [
   },
   {
     id: 3,
+    title: "Sitio web para Servicios de Electricidad",
+    subtitle: "Proyecto para cliente",
+    description:
+      "Sitio web para una empresa de servicios de electricidad, con foco en la presentación de servicios y contacto.",
+    highlights: [
+      "Diseño responsive mobile-first",
+      "UX/UI cuidada",
+      "Animaciones CSS",
+      "Deploy en Vercel",
+    ],
+    preview: "/previews/brosbe.png",
+    stack: ["HTML", "CSS", "JavaScript"],
+    links: {
+      code: "https://github.com/belenburgos20/proyecto-brosbe",
+      demo: "https://brosbe.vercel.app/",
+    },
+    featured: false,
+  },
+  {
+    id: 4,
     title: "Vientos Patagónicos",
     subtitle: "Proyecto para cliente",
     description:
