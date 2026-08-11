@@ -40,7 +40,7 @@ export const projects = [
       "Deploy en producción",
       "TypeScript end-to-end",
     ],
-    preview: "/public/previews/sistema-fullstack.png",
+    preview: "/previews/sistema-fullstack.png",
     stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "JWT"],
     links: {
       code: "https://github.com/belenburgos20/Trabajo-Final-Backend",
@@ -60,7 +60,7 @@ export const projects = [
       "Animaciones CSS",
       "Deploy en Vercel",
     ],
-    preview: "/public/previews/ey-bar.png",
+    preview: "/previews/ey-bar.png",
     stack: ["HTML", "CSS", "JavaScript"],
     links: {
       code: "https://github.com/belenburgos20/bar",
@@ -70,6 +70,26 @@ export const projects = [
   },
   {
     id: 3,
+    title: "Sitio web para Servicios de Electricidad",
+    subtitle: "Proyecto para cliente",
+    description:
+      "Sitio web para una empresa de servicios de electricidad, con foco en la presentación de servicios y contacto.",
+    highlights: [
+      "Diseño responsive mobile-first",
+      "UX/UI cuidada",
+      "Animaciones CSS",
+      "Deploy en Vercel",
+    ],
+    preview: "/previews/brosbe.png",
+    stack: ["HTML", "CSS", "JavaScript"],
+    links: {
+      code: "https://github.com/belenburgos20/proyecto-brosbe",
+      demo: "https://brosbe.vercel.app/",
+    },
+    featured: false,
+  },
+  {
+    id: 4,
     title: "Vientos Patagónicos",
     subtitle: "Proyecto para cliente",
     description:
@@ -80,7 +100,7 @@ export const projects = [
       "Animaciones CSS",
       "Deploy en Vercel",
     ],
-    preview: "/public/previews/vientos-patagonicos.png",
+    preview: "/previews/vientos-patagonicos.png",
     stack: ["HTML", "CSS", "JavaScript"],
     links: {
       code: "https://github.com/belenburgos20/proyecto-vientos-patagonicos",
@@ -92,7 +112,7 @@ export const projects = [
 
 export const education = [
   {
-    title: "Técnica Universitaria en Programación",
+    title: "Tecnicatura Universitaria en Programación",
     institution: "UTN — Universidad Tecnológica Nacional",
     year: "2026",
     description:
