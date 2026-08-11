@@ -6,23 +6,23 @@ export default function About() {
   const focusAreas = ["APIs REST", "JWT", "Bases de datos", "Deploy"];
 
   return (
-    <section id="about" className="py-28 relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-20 sm:py-24 lg:py-28 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
-          className="section-reveal grid md:grid-cols-2 gap-16 items-start"
+          className="section-reveal grid md:grid-cols-2 gap-10 lg:gap-16 items-start"
         >
           {/* Left column */}
           <div>
             <SectionLabel>Sobre mí</SectionLabel>
             <h2
-              className="font-display font-bold text-4xl md:text-5xl leading-tight mb-8"
+              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6 sm:mb-8"
               style={{ letterSpacing: "-0.02em" }}
             >
               Desarrolladora <span className="gradient-text">full-stack</span> .
             </h2>
 
-            <div className="space-y-3 font-body text-text-muted leading-relaxed text-base md:text-lg">
+            <div className="space-y-3 font-body text-text-muted leading-relaxed text-sm sm:text-base md:text-lg">
               {personalInfo.bio.slice(0, 2).map((para, i) => (
                 <p key={i} className="max-w-2xl">
                   {para}
@@ -38,7 +38,7 @@ export default function About() {
                 {focusAreas.map((area) => (
                   <span
                     key={area}
-                    className="font-body text-sm px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary-light"
+                    className="font-body text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary-light"
                   >
                     {area}
                   </span>
@@ -47,7 +47,7 @@ export default function About() {
             </div>
 
             {/* Location + language */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
               <InfoBadge icon="📍" text={personalInfo.location} />
               <InfoBadge icon="🌍" text="Inglés técnico (lectura)" />
               <InfoBadge icon="🎓" text="UTN — Técnica en Programación" />
@@ -58,7 +58,7 @@ export default function About() {
           <div className="space-y-6">
             {/* Education card */}
             {education.map((edu) => (
-              <div key={edu.title} className="card-glass rounded-2xl p-6">
+              <div key={edu.title} className="card-glass rounded-2xl p-5 sm:p-6">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div>
                     <h3 className="font-display font-semibold text-text-main text-base">
@@ -79,7 +79,7 @@ export default function About() {
             ))}
 
             {/* Soft skills */}
-            <div className="card-glass rounded-2xl p-6">
+            <div className="card-glass rounded-2xl p-5 sm:p-6">
               <h3 className="font-display font-semibold text-text-main text-sm uppercase tracking-wider mb-4">
                 Habilidades blandas
               </h3>
@@ -96,7 +96,7 @@ export default function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {[
                 { num: "3+", label: "Proyectos\ncompletos" },
                 { num: "5+", label: "Tecnologías\ndominadas" },

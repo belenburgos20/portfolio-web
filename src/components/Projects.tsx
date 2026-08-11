@@ -5,7 +5,7 @@ export default function Projects() {
   const ref = useScrollReveal();
 
   return (
-    <section id="projects" className="py-28 relative">
+    <section id="projects" className="py-20 sm:py-24 lg:py-28 relative">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-0 left-0 right-0 h-px opacity-20"
@@ -16,12 +16,12 @@ export default function Projects() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
           className="section-reveal"
         >
-          <div className="mb-16">
+          <div className="mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-4 h-px bg-primary" />
               <span className="font-mono text-xs text-primary tracking-widest uppercase">
@@ -29,14 +29,14 @@ export default function Projects() {
               </span>
             </div>
             <h2
-              className="font-display font-bold text-4xl md:text-5xl"
+              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl"
               style={{ letterSpacing: "-0.02em" }}
             >
               Lo que he <span className="gradient-text">construido</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
             {projects.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
@@ -59,7 +59,7 @@ function ProjectCard({
       className="card-glass rounded-2xl overflow-hidden group hover:border-primary/25 transition-all duration-300 hover:glow-pink hover:-translate-y-1 hover:shadow-xl"
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-44 sm:h-48 overflow-hidden">
         <img
           src={project.preview}
           alt={`Vista previa de ${project.title}`}
@@ -79,14 +79,14 @@ function ProjectCard({
         </div>
       </div>
 
-      <div className="p-6 md:p-7">
-        <h3 className="font-display font-bold text-xl md:text-2xl text-text-main mb-1 group-hover:gradient-text transition-all duration-300">
+      <div className="p-5 sm:p-6 md:p-7">
+        <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-text-main mb-1 group-hover:gradient-text transition-all duration-300">
           {project.title}
         </h3>
         <p className="font-body text-sm text-text-muted mb-4">
           {project.subtitle}
         </p>
-        <p className="font-body text-text-muted leading-relaxed mb-5 min-h-[3.4rem]">
+        <p className="font-body text-sm sm:text-base text-text-muted leading-relaxed mb-5 md:min-h-[3.4rem]">
           {project.description}
         </p>
 
@@ -107,7 +107,7 @@ function ProjectCard({
               href={project.links.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-body font-medium text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-body font-medium text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               style={{
                 background: "linear-gradient(135deg, #ec4899, #a78bfa)",
                 boxShadow: "0 0 16px rgba(236,72,153,0.2)",
@@ -122,7 +122,7 @@ function ProjectCard({
               href={project.links.code}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-sm text-text-muted border border-white/10 hover:border-primary/30 hover:text-text-main hover:-translate-y-0.5 transition-all duration-300"
+              className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-sm text-text-muted border border-white/10 hover:border-primary/30 hover:text-text-main hover:-translate-y-0.5 transition-all duration-300"
             >
               <GitHubIcon />
               Ver código
@@ -130,7 +130,7 @@ function ProjectCard({
           )}
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-sm text-text-muted border border-white/10 hover:border-accent/30 hover:text-text-main hover:-translate-y-0.5 transition-all duration-300"
+            className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-sm text-text-muted border border-white/10 hover:border-accent/30 hover:text-text-main hover:-translate-y-0.5 transition-all duration-300"
           >
             Propuesta laboral
           </a>

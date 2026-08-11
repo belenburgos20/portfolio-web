@@ -31,15 +31,15 @@ export default function Navbar() {
     <header
       className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg/90 backdrop-blur-md border-b border-primary/10 py-3"
-          : "bg-transparent py-5"
+          ? "bg-bg/90 backdrop-blur-md border-b border-primary/10 py-2.5 md:py-3"
+          : "bg-transparent py-3 md:py-5"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-display font-bold text-xl tracking-tight group"
+          className="font-display font-bold text-lg sm:text-xl tracking-tight group"
         >
           <span className="gradient-text">BB</span>
           <span className="text-text-muted font-light">.</span>
@@ -102,7 +102,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-bg-secondary/95 backdrop-blur-md border-b border-primary/10 px-6 py-6 flex flex-col gap-4">
+        <div className="md:hidden bg-bg-secondary/95 backdrop-blur-md border-b border-primary/10 px-4 sm:px-6 py-5 flex flex-col gap-4">
           {navLinks.map((link) => (
             <button
               key={link.href}
@@ -121,7 +121,7 @@ export default function Navbar() {
           ))}
           <a
             href="mailto:belenburgos20@gmail.com"
-            className="mt-2 inline-flex items-center gap-2 text-primary text-sm"
+            className="mt-2 inline-flex items-center gap-2 text-primary text-xs sm:text-sm break-all"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
             belenburgos20@gmail.com
