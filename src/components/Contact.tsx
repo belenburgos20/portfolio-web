@@ -22,10 +22,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 relative">
+    <section id="contact" className="py-20 sm:py-24 lg:py-28 relative">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-64 opacity-10 blur-3xl"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[min(90vw,600px)] h-56 sm:h-64 opacity-10 blur-3xl"
           style={{
             background: "radial-gradient(ellipse, #ec4899, transparent)",
           }}
@@ -39,7 +39,7 @@ export default function Contact() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
           className="section-reveal"
@@ -53,13 +53,13 @@ export default function Contact() {
           </div>
 
           <h2
-            className="font-display font-bold text-4xl md:text-5xl mb-6"
+            className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-5 sm:mb-6"
             style={{ letterSpacing: "-0.02em" }}
           >
             ¿Hablamos sobre <span className="gradient-text">tu proyecto</span>?
           </h2>
 
-          <p className="font-body text-text-muted text-lg leading-relaxed mb-10 max-w-2xl">
+          <p className="font-body text-text-muted text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-2xl">
             Estoy buscando mi primera experiencia profesional como
             desarrolladora full-stack. Si tenés un equipo o proyecto donde pueda
             sumarme, me encantaría conectar.
@@ -68,7 +68,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
             <form
               onSubmit={onSubmit}
-              className="card-glass rounded-2xl p-6 md:p-7 space-y-4 text-left"
+              className="card-glass rounded-2xl p-5 sm:p-6 md:p-7 space-y-4 text-left"
             >
               <h3 className="font-display text-2xl text-text-main mb-1">
                 Enviar un mensaje
@@ -127,7 +127,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full font-display font-semibold text-base text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-3 px-7 py-3.5 rounded-full font-display font-semibold text-base text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl"
                 style={{
                   background: "linear-gradient(135deg, #ec4899, #a78bfa)",
                   boxShadow: "0 0 30px rgba(236,72,153,0.25)",

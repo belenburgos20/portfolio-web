@@ -17,7 +17,7 @@ export default function Skills() {
   const levels = ["main", "experience"];
 
   return (
-    <section id="skills" className="py-28 relative">
+    <section id="skills" className="py-20 sm:py-24 lg:py-28 relative">
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -29,12 +29,12 @@ export default function Skills() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
           className="section-reveal"
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-4 h-px bg-primary" />
               <span className="font-mono text-xs text-primary tracking-widest uppercase">
@@ -43,20 +43,20 @@ export default function Skills() {
               <span className="w-4 h-px bg-primary" />
             </div>
             <h2
-              className="font-display font-bold text-4xl md:text-5xl"
+              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl"
               style={{ letterSpacing: "-0.02em" }}
             >
               Tecnologías que <span className="gradient-text">domino</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
             {levels.map((level) => {
               const levelSkills = skills.filter((s) => s.level === level);
               return (
                 <div
                   key={level}
-                  className="card-glass rounded-2xl p-6 group hover:border-primary/25 transition-colors duration-300"
+                  className="card-glass rounded-2xl p-5 sm:p-6 group hover:border-primary/25 transition-colors duration-300"
                 >
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-6">
@@ -85,7 +85,7 @@ export default function Skills() {
           </div>
 
           {/* Bottom marquee */}
-          <div className="mt-16 overflow-hidden">
+          <div className="mt-12 sm:mt-16 overflow-hidden">
             <div
               className="flex gap-8 opacity-20"
               style={{ animation: "none" }}

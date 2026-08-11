@@ -10,7 +10,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-size: calc(1rem + 2px);
+    font-size: clamp(15px, 0.35vw + 14px, 18px);
   }
 
   body {
@@ -43,7 +43,7 @@
   }
 
   section[id] {
-    scroll-margin-top: 6.5rem;
+    scroll-margin-top: clamp(5rem, 8vw, 6.5rem);
   }
 
   ::selection {

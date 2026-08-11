@@ -10,17 +10,17 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-          className="absolute top-1/4 -left-32 w-96 h-96 rounded-full opacity-10 blur-3xl animate-pulse-slow"
+          className="absolute top-1/4 -left-24 md:-left-32 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full opacity-10 blur-3xl animate-pulse-slow"
           style={{
             background: "radial-gradient(circle, #ec4899, transparent)",
           }}
         />
         <div
-          className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full opacity-8 blur-3xl animate-pulse-slow"
+          className="absolute bottom-1/4 -right-24 md:-right-32 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full opacity-8 blur-3xl animate-pulse-slow"
           style={{
             background: "radial-gradient(circle, #a78bfa, transparent)",
             animationDelay: "2s",
@@ -31,15 +31,15 @@ export default function Hero() {
           style={{
             backgroundImage:
               "linear-gradient(#ec4899 1px, transparent 1px), linear-gradient(90deg, #ec4899 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            backgroundSize: "clamp(42px, 6vw, 60px) clamp(42px, 6vw, 60px)",
           }}
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 md:pt-24 pb-12 md:pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16">
         <div className="max-w-3xl">
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8"
+           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-6 sm:mb-8"
             style={{ animationDelay: "0.1s" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -49,7 +49,7 @@ export default function Hero() {
           </div>
 
           <p
-            className="font-body text-sm md:text-base text-text-muted/90 mb-5"
+            className="font-body text-sm sm:text-base text-text-muted/90 mb-4 sm:mb-5"
             style={{ animation: "fadeUp 0.7s ease 0.28s both", opacity: 0 }}
           >
             Técnica en Programación | Full Stack Developer
@@ -69,20 +69,20 @@ export default function Hero() {
           </h1>
 
           <p
-            className="font-body text-text-muted text-lg leading-relaxed max-w-xl mb-10"
+            className="font-body text-text-muted text-base sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10"
             style={{ animation: "fadeUp 0.7s ease 0.46s both", opacity: 0 }}
           >
             {personalInfo.tagline}
           </p>
 
           <div
-            className="flex flex-wrap gap-2 mb-12"
+            className="flex flex-wrap gap-2 mb-10 sm:mb-12"
             style={{ animation: "fadeUp 0.7s ease 0.56s both", opacity: 0 }}
           >
             {"React,TypeScript,Node.js,PostgreSQL".split(",").map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-xs px-3 py-1.5 rounded-md bg-bg-secondary border border-white/5 text-text-muted"
+                className="font-mono text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-md bg-bg-secondary border border-white/5 text-text-muted"
               >
                 {tech}
               </span>
@@ -90,12 +90,12 @@ export default function Hero() {
           </div>
 
           <div
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4"
             style={{ animation: "fadeUp 0.7s ease 0.66s both", opacity: 0 }}
           >
             <button
               onClick={() => scrollTo("#projects")}
-              className="px-6 py-3 rounded-full font-body font-medium text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg"
+              className="w-full sm:w-auto justify-center inline-flex px-6 py-3 rounded-full font-body font-medium text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg"
               style={{
                 background: "linear-gradient(135deg, #ec4899, #a78bfa)",
                 boxShadow: "0 0 20px rgba(236,72,153,0.25)",
@@ -106,14 +106,14 @@ export default function Hero() {
             <a
               href={cvPath}
               download
-              className="px-6 py-3 rounded-full font-body font-medium text-sm text-text-main border border-white/10 hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
+              className="w-full sm:w-auto justify-center inline-flex px-6 py-3 rounded-full font-body font-medium text-sm text-text-main border border-white/10 hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
             >
               Descargar CV
             </a>
           </div>
 
           <div
-            className="mt-6 flex items-center gap-3"
+            className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3"
             style={{ animation: "fadeUp 0.7s ease 0.78s both", opacity: 0 }}
           >
             <SocialLink
@@ -130,7 +130,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-55"
+          className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-55"
           style={{ animation: "fadeIn 1s ease 1.5s both" }}
         >
           <div className="relative w-6 h-10 rounded-full border border-white/10 flex items-start justify-center pt-2">

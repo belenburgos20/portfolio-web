@@ -2,8 +2,8 @@ import { personalInfo } from "../data/portfolio";
 
 export default function Footer() {
   return (
-    <footer className="py-10 border-t border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="py-8 sm:py-10 border-t border-white/[0.06]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <span className="font-display font-bold text-lg">
           <span className="gradient-text">BB</span>
           <span className="text-text-muted font-light">.</span>
