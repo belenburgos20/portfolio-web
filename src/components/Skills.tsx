@@ -1,102 +1,67 @@
-import { skills } from "../data/portfolio";
+import { skillGroups, aiWorkflow } from "../data/portfolio";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-
-const levelLabels: Record<string, string> = {
-  main: "Principales",
-  experience: "Con experiencia",
-};
-
-const levelColors: Record<string, string> = {
-  main: "from-primary to-accent",
-  experience: "from-primary-light to-primary",
-};
+import SectionLabel from "./SectionLabel";
 
 export default function Skills() {
   const ref = useScrollReveal();
 
-  const levels = ["main", "experience"];
-
   return (
-    <section id="skills" className="py-20 sm:py-24 lg:py-28 relative">
-      {/* Background accent */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-0 left-0 right-0 h-px opacity-20"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #ec4899, transparent)",
-          }}
-        />
-      </div>
-
+    <section id="skills" className="py-20 sm:py-24 lg:py-28 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div
-          ref={ref as React.RefObject<HTMLDivElement>}
-          className="section-reveal"
-        >
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="w-4 h-px bg-primary" />
-              <span className="font-mono text-xs text-primary tracking-widest uppercase">
-                Stack técnico
-              </span>
-              <span className="w-4 h-px bg-primary" />
-            </div>
-            <h2
-              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Tecnologías que <span className="gradient-text">domino</span>
+        <div ref={ref as React.RefObject<HTMLDivElement>} className="section-reveal">
+          <div className="mb-10 sm:mb-14 max-w-2xl">
+            <SectionLabel>Stack técnico</SectionLabel>
+            <h2 className="section-title">
+              Tecnologías que <span className="accent-text">puedo defender</span>
             </h2>
+            <p className="mt-4 font-body text-text-muted leading-relaxed">
+              Sin barras de porcentaje. Cada tecnología de esta lista está usada en
+              al menos uno de los proyectos de abajo, y puedo explicar por qué está
+              ahí y qué alternativa descarté.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
-            {levels.map((level) => {
-              const levelSkills = skills.filter((s) => s.level === level);
-              return (
-                <div
-                  key={level}
-                  className="card-glass rounded-2xl p-5 sm:p-6 group hover:border-primary/25 transition-colors duration-300"
-                >
-                  {/* Header */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className={`w-2 h-8 rounded-full bg-gradient-to-b ${levelColors[level]}`}
-                    />
-                    <h3 className="font-display font-semibold text-text-main text-base">
-                      {levelLabels[level]}
-                    </h3>
-                  </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {skillGroups.map((group) => (
+              <div key={group.id} className="surface rounded-2xl p-5 sm:p-6">
+                <h3 className="font-display font-semibold text-text-main text-base mb-4 flex items-center gap-2.5">
+                  <span className="w-1.5 h-5 rounded-full bg-primary" aria-hidden="true" />
+                  {group.label}
+                </h3>
+                <ul className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="font-mono text-xs px-2.5 py-1.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-text-muted"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
-                  {/* Skills grid */}
-                  <div className="flex flex-wrap gap-2">
-                    {levelSkills.map((skill, i) => (
-                      <SkillChip
-                        key={`${level}-${skill.name}`}
-                        name={skill.name}
-                        category={skill.category}
-                        delay={i * 60}
-                      />
-                    ))}
-                  </div>
+          {/* Flujo de trabajo con IA */}
+          <div className="mt-14 sm:mt-16">
+            <div className="mb-8 max-w-3xl">
+              <SectionLabel>Flujo de trabajo con IA</SectionLabel>
+              <h3 className="font-display font-bold text-xl sm:text-2xl text-text-main mb-4">
+                Uso asistentes de IA, y sé dónde no confiar en ellos
+              </h3>
+              <p className="font-body text-text-muted leading-relaxed">{aiWorkflow.intro}</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {aiWorkflow.practices.map((practice) => (
+                <div key={practice.title} className="surface rounded-2xl p-5 sm:p-6">
+                  <h4 className="font-display font-semibold text-text-main text-sm mb-2.5">
+                    {practice.title}
+                  </h4>
+                  <p className="font-body text-sm text-text-muted leading-relaxed">
+                    {practice.detail}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Bottom marquee */}
-          <div className="mt-12 sm:mt-16 overflow-hidden">
-            <div
-              className="flex gap-8 opacity-20"
-              style={{ animation: "none" }}
-            >
-              {skills.concat(skills).map((skill, i) => (
-                <span
-                  key={i}
-                  className="font-mono text-sm text-text-muted whitespace-nowrap shrink-0"
-                >
-                  {skill.name}
-                </span>
               ))}
             </div>
           </div>
@@ -106,34 +71,3 @@ export default function Skills() {
   );
 }
 
-function SkillChip({
-  name,
-  category,
-  delay,
-}: {
-  name: string;
-  category: string;
-  delay: number;
-}) {
-  const categoryLabel: Record<string, string> = {
-    frontend: "FE",
-    backend: "BE",
-    tools: "TOOLS",
-  };
-
-  return (
-    <div
-      className="group/chip relative px-3 py-2 rounded-lg border border-white/[0.07] bg-white/[0.03] hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 cursor-default"
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="flex items-center gap-2">
-        <span className="font-mono text-[10px] text-primary/90 border border-primary/20 rounded px-1.5 py-0.5">
-          {categoryLabel[category]}
-        </span>
-        <span className="font-body text-sm text-text-muted group-hover/chip:text-text-main transition-colors duration-200">
-          {name}
-        </span>
-      </div>
-    </div>
-  );
-}

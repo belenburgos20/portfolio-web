@@ -1,74 +1,50 @@
-import { personalInfo, education, softSkills } from "../data/portfolio";
+import { personalInfo, education, workingStyle } from "../data/portfolio";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import SectionLabel from "./SectionLabel";
 
 export default function About() {
   const ref = useScrollReveal();
-  const focusAreas = ["APIs REST", "JWT", "Bases de datos", "Deploy"];
 
   return (
-    <section id="about" className="py-20 sm:py-24 lg:py-28 relative">
+    <section id="about" className="py-20 sm:py-24 lg:py-28 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
-          className="section-reveal grid md:grid-cols-2 gap-10 lg:gap-16 items-start"
+          className="section-reveal grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-10 lg:gap-16 items-start"
         >
-          {/* Left column */}
           <div>
             <SectionLabel>Sobre mí</SectionLabel>
-            <h2
-              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6 sm:mb-8"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Desarrolladora <span className="gradient-text">full-stack</span> .
+            <h2 className="section-title mb-6">
+              Desarrolladora full-stack con{" "}
+              <span className="accent-text">clientes reales</span>
             </h2>
 
-            <div className="space-y-3 font-body text-text-muted leading-relaxed text-sm sm:text-base md:text-lg">
-              {personalInfo.bio.slice(0, 2).map((para, i) => (
-                <p key={i} className="max-w-2xl">
+            <div className="space-y-4 font-body text-text-muted leading-relaxed text-[15px] sm:text-base">
+              {personalInfo.bio.map((para) => (
+                <p key={para.slice(0, 40)} className="max-w-2xl">
                   {para}
                 </p>
               ))}
             </div>
 
-            <div className="mt-6">
-              <p className="font-mono text-xs text-primary tracking-widest uppercase mb-3">
-                Enfoque técnico
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {focusAreas.map((area) => (
-                  <span
-                    key={area}
-                    className="font-body text-xs sm:text-sm px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary-light"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Location + language */}
-            <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-              <InfoBadge icon="📍" text={personalInfo.location} />
-              <InfoBadge icon="🌍" text="Inglés técnico (lectura)" />
-              <InfoBadge icon="🎓" text="UTN — Técnica en Programación" />
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              <InfoBadge text={personalInfo.location} />
+              <InfoBadge text="Disponible remoto o híbrido" />
+              <InfoBadge text="Inglés técnico (lectura)" />
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="space-y-6">
-            {/* Education card */}
+          <div className="space-y-5 w-full">
             {education.map((edu) => (
-              <div key={edu.title} className="card-glass rounded-2xl p-5 sm:p-6">
+              <div key={edu.title} className="surface rounded-2xl p-5 sm:p-6">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div>
-                    <h3 className="font-display font-semibold text-text-main text-base">
+                    <h3 className="font-display font-semibold text-text-main text-base leading-snug">
                       {edu.title}
                     </h3>
-                    <p className="text-text-muted text-sm font-body mt-0.5">
-                      {edu.institution}
-                    </p>
+                    <p className="text-text-muted text-sm font-body mt-1">{edu.institution}</p>
                   </div>
-                  <span className="font-mono text-xs px-2.5 py-1 rounded-full border border-primary/20 text-primary shrink-0">
+                  <span className="font-mono text-xs px-2.5 py-1 rounded-full border border-primary/25 text-primary-light shrink-0">
                     {edu.year}
                   </span>
                 </div>
@@ -78,42 +54,22 @@ export default function About() {
               </div>
             ))}
 
-            {/* Soft skills */}
-            <div className="card-glass rounded-2xl p-5 sm:p-6">
-              <h3 className="font-display font-semibold text-text-main text-sm uppercase tracking-wider mb-4">
-                Habilidades blandas
+            <div className="surface rounded-2xl p-5 sm:p-6">
+              <h3 className="font-mono text-xs text-primary tracking-widest uppercase mb-5">
+                Cómo trabajo
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {softSkills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="font-body text-sm px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20 text-accent/80"
-                  >
-                    {skill}
-                  </span>
+              <ul className="space-y-4">
+                {workingStyle.map((item) => (
+                  <li key={item.title}>
+                    <h4 className="font-display font-semibold text-text-main text-sm">
+                      {item.title}
+                    </h4>
+                    <p className="font-body text-sm text-text-muted leading-relaxed mt-1">
+                      {item.detail}
+                    </p>
+                  </li>
                 ))}
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-              {[
-                { num: "3+", label: "Proyectos\ncompletos" },
-                { num: "5+", label: "Tecnologías\ndominadas" },
-                { num: "3", label: "proyectos en\nproducción" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="card-glass rounded-xl p-4 text-center"
-                >
-                  <div className="font-display font-bold text-2xl gradient-text">
-                    {stat.num}
-                  </div>
-                  <div className="font-body text-xs text-text-muted mt-1 whitespace-pre-line leading-tight">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -122,22 +78,10 @@ export default function About() {
   );
 }
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function InfoBadge({ text }: { text: string }) {
   return (
-    <div className="inline-flex items-center gap-2 mb-4">
-      <span className="w-4 h-px bg-primary" />
-      <span className="font-mono text-xs text-primary tracking-widest uppercase">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-function InfoBadge({ icon, text }: { icon: string; text: string }) {
-  return (
-    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.07] text-sm text-text-muted font-body">
-      <span>{icon}</span>
-      <span>{text}</span>
-    </div>
+    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-sm text-text-muted font-body">
+      {text}
+    </span>
   );
 }

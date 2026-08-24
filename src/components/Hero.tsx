@@ -1,33 +1,25 @@
 import { personalInfo } from "../data/portfolio";
 
+const HERO_STACK = ["React", "TypeScript", "Node.js", "PostgreSQL"];
+
 export default function Hero() {
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const cvPath = "/cv/cv-belen-burgos.pdf";
-
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+      className="relative flex items-center overflow-hidden min-h-[min(100svh,860px)]"
     >
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Fondo: una sola capa estática, sin animaciones en bucle. */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div
-          className="absolute top-1/4 -left-24 md:-left-32 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full opacity-10 blur-3xl animate-pulse-slow"
-          style={{
-            background: "radial-gradient(circle, #ec4899, transparent)",
-          }}
+          className="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full opacity-[0.07] blur-3xl"
+          style={{ background: "radial-gradient(circle, #ec4899, transparent 70%)" }}
         />
         <div
-          className="absolute bottom-1/4 -right-24 md:-right-32 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full opacity-8 blur-3xl animate-pulse-slow"
-          style={{
-            background: "radial-gradient(circle, #a78bfa, transparent)",
-            animationDelay: "2s",
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage:
               "linear-gradient(#ec4899 1px, transparent 1px), linear-gradient(90deg, #ec4899 1px, transparent 1px)",
@@ -36,139 +28,99 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-28 sm:pb-20">
         <div className="max-w-3xl">
-          <div
-           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-6 sm:mb-8"
-            style={{ animationDelay: "0.1s" }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-mono text-primary tracking-wider uppercase">
-              Open to work · Remoto & Híbrido
+          <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/25 bg-primary/[0.07] mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true" />
+            <span className="text-xs font-mono text-primary-light tracking-wide">
+              {personalInfo.availability}
             </span>
-          </div>
-
-          <p
-            className="font-body text-sm sm:text-base text-text-muted/90 mb-4 sm:mb-5"
-            style={{ animation: "fadeUp 0.7s ease 0.28s both", opacity: 0 }}
-          >
-            Técnica en Programación | Full Stack Developer
           </p>
 
           <h1
             className="font-display font-bold mb-4"
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              animation: "fadeUp 0.7s ease 0.2s both",
-              opacity: 0,
+              fontSize: "clamp(2.5rem, 6vw, 4.25rem)",
+              lineHeight: 1.08,
+              letterSpacing: "-0.025em",
             }}
           >
             <span className="gradient-text">{personalInfo.name}</span>
           </h1>
 
-          <p
-            className="font-body text-text-muted text-base sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10"
-            style={{ animation: "fadeUp 0.7s ease 0.46s both", opacity: 0 }}
-          >
+          <p className="font-display text-lg sm:text-xl md:text-2xl text-text-main/90 mb-5">
+            {personalInfo.headline}
+          </p>
+
+          <p className="font-body text-text-muted text-base sm:text-lg leading-relaxed max-w-2xl mb-9">
             {personalInfo.tagline}
           </p>
 
-          <div
-            className="flex flex-wrap gap-2 mb-10 sm:mb-12"
-            style={{ animation: "fadeUp 0.7s ease 0.56s both", opacity: 0 }}
-          >
-            {"React,TypeScript,Node.js,PostgreSQL".split(",").map((tech) => (
-              <span
+          <ul className="flex flex-wrap gap-2 mb-10" aria-label="Tecnologías principales">
+            {HERO_STACK.map((tech) => (
+              <li
                 key={tech}
-                className="font-mono text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-md bg-bg-secondary border border-white/5 text-text-muted"
+                className="font-mono text-[11px] sm:text-xs px-3 py-1.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-text-muted"
               >
                 {tech}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <div
-            className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4"
-            style={{ animation: "fadeUp 0.7s ease 0.66s both", opacity: 0 }}
-          >
-            <button
-              onClick={() => scrollTo("#projects")}
-              className="w-full sm:w-auto justify-center inline-flex px-6 py-3 rounded-full font-body font-medium text-sm text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg"
-              style={{
-                background: "linear-gradient(135deg, #ec4899, #a78bfa)",
-                boxShadow: "0 0 20px rgba(236,72,153,0.25)",
-              }}
-            >
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+            <button type="button" onClick={() => scrollTo("#projects")} className="btn-primary">
               Ver proyectos
             </button>
-            <a
-              href={cvPath}
-              download
-              className="w-full sm:w-auto justify-center inline-flex px-6 py-3 rounded-full font-body font-medium text-sm text-text-main border border-white/10 hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-300"
-            >
+            <a href="/cv/cv-belen-burgos.pdf" download className="btn-ghost">
+              <DownloadIcon />
               Descargar CV
             </a>
-          </div>
-
-          <div
-            className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3"
-            style={{ animation: "fadeUp 0.7s ease 0.78s both", opacity: 0 }}
-          >
-            <SocialLink
+            <a
               href={personalInfo.github}
-              label="GitHub"
-              icon={<GitHubIcon />}
-            />
-            <SocialLink
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              <GitHubIcon />
+              GitHub
+            </a>
+            <a
               href={personalInfo.linkedin}
-              label="LinkedIn"
-              icon={<LinkedInIcon />}
-            />
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              <LinkedInIcon />
+              LinkedIn
+            </a>
           </div>
-        </div>
-
-        <div
-          className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-55"
-          style={{ animation: "fadeIn 1s ease 1.5s both" }}
-        >
-          <div className="relative w-6 h-10 rounded-full border border-white/10 flex items-start justify-center pt-2">
-            <span className="w-1 h-1.5 rounded-full bg-text-muted animate-bounce" />
-          </div>
-          <div className="w-px h-6 bg-gradient-to-b from-text-muted to-transparent" />
         </div>
       </div>
     </section>
   );
 }
 
-function SocialLink({
-  href,
-  label,
-  icon,
-}: {
-  href: string;
-  label: string;
-  icon: React.ReactNode;
-}) {
+function DownloadIcon() {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 text-xs font-body text-text-muted hover:text-text-main hover:border-white/20 hover:bg-white/[0.03] transition-all duration-200"
-      aria-label={label}
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      aria-hidden="true"
     >
-      {icon}
-      <span>{label}</span>
-    </a>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
   );
 }
 
 function GitHubIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
     </svg>
   );
@@ -176,7 +128,7 @@ function GitHubIcon() {
 
 function LinkedInIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );

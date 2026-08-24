@@ -5,7 +5,6 @@
 @layer base {
   * {
     box-sizing: border-box;
-    scroll-behavior: smooth;
   }
 
   html {
@@ -22,24 +21,16 @@
     overflow-x: hidden;
   }
 
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Foco visible y consistente para navegación por teclado. */
+  :focus-visible {
+    outline: 2px solid #f472b6;
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  /* Sin foco anillado para quien navega con mouse. */
+  :focus:not(:focus-visible) {
+    outline: none;
   }
 
   section[id] {
@@ -52,7 +43,7 @@
   }
 
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -60,83 +51,157 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #ec4899;
-    border-radius: 2px;
+    background: #334155;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+
+  /*
+   * Respeta a quien pidió menos movimiento en su sistema operativo.
+   * Requisito de accesibilidad (WCAG 2.3.3), no un detalle opcional.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .section-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
+
+@layer components {
+  /* Enlace para saltar la navegación: visible solo al tabular. */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    background-color: #ec4899;
+    color: #ffffff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Superficie base de tarjetas. Sin glow ni blur costoso. */
+  .surface {
+    background-color: rgba(17, 24, 39, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .surface:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .section-title {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.85rem, 4vw, 2.9rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: 0.7rem;
+    background-color: #ec4899;
+    color: #ffffff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #db2777;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: 0.7rem;
+    background-color: transparent;
+    color: #9ca3af;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    color: #f9fafb;
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.03);
   }
 }
 
 @layer utilities {
+  /*
+   * Degradado reservado para el nombre en el hero. En el resto del sitio se usa
+   * .accent-text: texto plano con color, que mantiene el contraste real y no
+   * depende de -webkit-text-fill-color para ser legible.
+   */
   .gradient-text {
-    background: linear-gradient(135deg, #ec4899, #a78bfa);
+    background: linear-gradient(120deg, #f472b6, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .gradient-border {
-    position: relative;
-  }
-
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, #ec4899, #a78bfa);
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-  }
-
-  .glow-pink {
-    box-shadow:
-      0 0 20px rgba(236, 72, 153, 0.15),
-      0 0 60px rgba(236, 72, 153, 0.05);
-  }
-
-  .glow-violet {
-    box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
-  }
-
-  .card-glass {
-    background: rgba(17, 24, 39, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(236, 72, 153, 0.12);
-  }
-
-  .noise-overlay {
-    position: relative;
-  }
-
-  .noise-overlay::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    opacity: 0.4;
+  .accent-text {
+    color: #f472b6;
   }
 
   .section-reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition:
-      opacity 0.7s ease,
-      transform 0.7s ease;
+      opacity 0.55s ease,
+      transform 0.55s ease;
   }
 
   .section-reveal.visible {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  .card-glass,
-  button,
-  a {
-    transition-property:
-      transform, box-shadow, border-color, color, background-color, opacity;
   }
 }

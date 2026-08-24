@@ -9,14 +9,14 @@ export default function Footer() {
           <span className="text-text-muted font-light">.</span>
         </span>
         <p className="font-mono text-xs text-text-muted text-center">
-          © {new Date().getFullYear()} Belén Burgos · Hecho con React + Vite
+          © {new Date().getFullYear()} {personalInfo.name} · React + TypeScript + Vite
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-muted hover:text-primary transition-colors text-sm font-body"
+            className="text-text-muted hover:text-primary-light transition-colors text-sm font-body"
           >
             GitHub
           </a>
@@ -24,9 +24,15 @@ export default function Footer() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-muted hover:text-primary transition-colors text-sm font-body"
+            className="text-text-muted hover:text-primary-light transition-colors text-sm font-body"
           >
             LinkedIn
+          </a>
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="text-text-muted hover:text-primary-light transition-colors text-sm font-body"
+          >
+            Email
           </a>
         </div>
       </div>
