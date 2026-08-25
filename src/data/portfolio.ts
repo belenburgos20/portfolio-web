@@ -174,8 +174,7 @@ export const projects: Project[] = [
     stack: [
       "React 19",
       "TypeScript",
-      "Supabase",
-      "PostgreSQL",
+      "MongoDB Atlas",
       "TanStack Query",
       "Vite",
     ],
