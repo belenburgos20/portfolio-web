@@ -362,6 +362,38 @@ export const projects: Project[] = [
         "Es el proyecto más simple del portfolio y lo dejo a propósito: muestra que puedo escribir CSS desde cero y que elijo la herramienta según el problema. Está pendiente volver a desplegarlo.",
     },
   },
+  {
+    id: "Servicio de electricidad",
+    title: "Servicio de electricidad",
+    subtitle: "Cliente real · sitio institucional",
+    year: "2025",
+    role: "Diseño y desarrollo frontend",
+    status: "offline",
+    summary:
+      "Sitio institucional responsive construido con HTML, CSS y JavaScript, sin frameworks ni dependencias.",
+    preview: "/previews/brosbe-electricidad.png",
+    stack: ["HTML", "CSS", "JavaScript"],
+    links: {
+      code: "https://github.com/belenburgos20/proyecto-brosbe",
+      demo: "https://brosbe.vercel.app/",
+    },
+    featured: false,
+    caseStudy: {
+      problem:
+        "Un sitio de presentación para un negocio que no tenía presencia web. El requisito real era que cargara rápido y se viera bien en el celular, que es desde donde llega casi todo el tráfico.",
+      stackRationale:
+        "HTML, CSS y JavaScript sin frameworks, a propósito. Para un sitio de pocas páginas y contenido estático, montar React implica enviar un runtime que no aporta nada: el usuario descargaría más para ver lo mismo. Saber cuándo no usar una herramienta también es parte de elegir el stack.",
+      challenges: [
+        {
+          title: "Diseño responsive sin librerías de CSS",
+          detail:
+            "Resolví la maquetación con Flexbox y Grid y unidades relativas, partiendo del layout de celular y ampliando hacia escritorio. Sin Bootstrap ni Tailwind, lo que me obligó a entender el modelo de caja y los puntos de quiebre en vez de copiar clases.",
+        },
+      ],
+      outcome:
+        "Es el proyecto más simple del portfolio y lo dejo a propósito: muestra que puedo escribir CSS desde cero y que elijo la herramienta según el problema. Está pendiente volver a desplegarlo.",
+    },
+  },
 ];
 
 export const education = [
