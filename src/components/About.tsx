@@ -6,7 +6,10 @@ export default function About() {
   const ref = useScrollReveal();
 
   return (
-    <section id="about" className="py-20 sm:py-24 lg:py-28 border-t border-white/[0.06]">
+    <section
+      id="about"
+      className="py-20 sm:py-24 lg:py-28 border-t border-white/[0.06]"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
@@ -42,7 +45,9 @@ export default function About() {
                     <h3 className="font-display font-semibold text-text-main text-base leading-snug">
                       {edu.title}
                     </h3>
-                    <p className="text-text-muted text-sm font-body mt-1">{edu.institution}</p>
+                    <p className="text-text-muted text-sm font-body mt-1">
+                      {edu.institution}
+                    </p>
                   </div>
                   <span className="font-mono text-xs px-2.5 py-1 rounded-full border border-primary/25 text-primary-light shrink-0">
                     {edu.year}

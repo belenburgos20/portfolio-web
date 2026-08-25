@@ -7,9 +7,15 @@ export default function Projects() {
   const ref = useScrollReveal();
 
   return (
-    <section id="projects" className="py-20 sm:py-24 lg:py-28 border-t border-white/[0.06]">
+    <section
+      id="projects"
+      className="py-20 sm:py-24 lg:py-28 border-t border-white/[0.06]"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div ref={ref as React.RefObject<HTMLDivElement>} className="section-reveal">
+        <div
+          ref={ref as React.RefObject<HTMLDivElement>}
+          className="section-reveal"
+        >
           <div className="mb-10 sm:mb-14 max-w-2xl">
             <SectionLabel>Proyectos</SectionLabel>
             <h2 className="section-title">
@@ -23,7 +29,7 @@ export default function Projects() {
           </div>
 
           <div className="flex flex-col gap-6 sm:gap-8">
-            {projects.map((project) => (
+            {projects.map((project: Project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
@@ -74,7 +80,10 @@ function ProjectCard({ project }: { project: Project }) {
             <span className="text-text-muted">Rol:</span> {project.role}
           </p>
 
-          <ul className="flex flex-wrap gap-2 mt-5" aria-label="Tecnologías utilizadas">
+          <ul
+            className="flex flex-wrap gap-2 mt-5"
+            aria-label="Tecnologías utilizadas"
+          >
             {project.stack.map((tech) => (
               <li
                 key={tech}
@@ -87,13 +96,23 @@ function ProjectCard({ project }: { project: Project }) {
 
           <div className="flex flex-wrap gap-2.5 mt-auto pt-6">
             {project.links.demo && (
-              <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a
+                href={project.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
                 <ExternalIcon />
                 Ver demo
               </a>
             )}
             {project.links.code && (
-              <a href={project.links.code} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              <a
+                href={project.links.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
                 <GitHubIcon />
                 {project.links.codeAlt ? "Repo backend" : "Ver código"}
               </a>
@@ -130,7 +149,9 @@ function ProjectCard({ project }: { project: Project }) {
       >
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
           <CaseBlock title="El problema">{project.caseStudy.problem}</CaseBlock>
-          <CaseBlock title="Por qué este stack">{project.caseStudy.stackRationale}</CaseBlock>
+          <CaseBlock title="Por qué este stack">
+            {project.caseStudy.stackRationale}
+          </CaseBlock>
         </div>
 
         <div className="mt-8">
@@ -160,27 +181,48 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/[0.07]">
-          <CaseBlock title="Resultado y aprendizaje">{project.caseStudy.outcome}</CaseBlock>
+          <CaseBlock title="Resultado y aprendizaje">
+            {project.caseStudy.outcome}
+          </CaseBlock>
         </div>
       </div>
     </article>
   );
 }
 
-function CaseBlock({ title, children }: { title: string; children: React.ReactNode }) {
+function CaseBlock({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div>
-      <h4 className="font-mono text-xs text-primary tracking-widest uppercase mb-3">{title}</h4>
-      <p className="font-body text-sm text-text-muted leading-relaxed max-w-3xl">{children}</p>
+      <h4 className="font-mono text-xs text-primary tracking-widest uppercase mb-3">
+        {title}
+      </h4>
+      <p className="font-body text-sm text-text-muted leading-relaxed max-w-3xl">
+        {children}
+      </p>
     </div>
   );
 }
 
 function StatusBadge({ status }: { status: Project["status"] }) {
   const config = {
-    live: { label: "En producción", className: "text-emerald-300 border-emerald-400/30" },
-    wip: { label: "En desarrollo", className: "text-amber-300 border-amber-400/30" },
-    offline: { label: "Demo fuera de línea", className: "text-text-muted border-white/20" },
+    live: {
+      label: "En producción",
+      className: "text-emerald-300 border-emerald-400/30",
+    },
+    wip: {
+      label: "En desarrollo",
+      className: "text-amber-300 border-amber-400/30",
+    },
+    offline: {
+      label: "Demo fuera de línea",
+      className: "text-text-muted border-white/20",
+    },
   }[status];
 
   return (
@@ -229,7 +271,13 @@ function ExternalIcon() {
 
 function GitHubIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
     </svg>
   );

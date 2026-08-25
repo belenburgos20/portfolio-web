@@ -9,7 +9,8 @@ export default function Footer() {
           <span className="text-text-muted font-light">.</span>
         </span>
         <p className="font-mono text-xs text-text-muted text-center">
-          © {new Date().getFullYear()} {personalInfo.name} · React + TypeScript + Vite
+          © {new Date().getFullYear()} {personalInfo.name} · React + TypeScript
+          + Vite
         </p>
         <div className="flex items-center gap-5">
           <a
